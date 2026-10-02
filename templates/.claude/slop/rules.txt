@@ -1,0 +1,255 @@
+# AI-slop rules. One rule per line:   <regex> => <hint>
+#
+# - Python regex, case-insensitive. A leading word boundary is added automatically, no trailing one,
+#   so "delv" also matches "delves" / "delving" and Turkish suffixes still match.
+# - Every section is applied to every text (phrases are language specific, collisions are rare).
+# - Structural checks (dashes, bold-lead lists, emoji bullets) live in slop_check.py.
+# - Warnings only. Add a rule when you see a new pattern twice; drop one when it keeps misfiring.
+
+[en]
+delv(e|es|ed|ing)\b => say "look at" / "examine", or drop it
+tapestry => drop the metaphor
+testament to => say what it shows
+seamless => say what actually works without extra steps
+robust\b => say what it survives (load, bad input, retries)
+leverag(e|es|ed|ing) => "use"
+utiliz(e|es|ed|ing) => "use"
+harness(es|ed|ing)? the power => drop it
+unlock(s|ed|ing)? (the |its |your )?(full )?(potential|power) => say the concrete gain
+game[- ]?changer => say what changes and by how much
+cutting[- ]edge => name the thing or the number
+in today'?s (fast[- ]paced|digital|ever[- ]\w+|rapidly \w+) => drop the opener
+ever[- ](evolving|changing) => drop it
+fast[- ]paced => drop it
+navigat\w* (the )?(\w+ )?(landscape|complexit) => drop the metaphor
+the (\w+ )?landscape of => name the field directly
+\w+ landscape\b => "landscape" is filler, name the field
+realm\b => "field" / "area", or drop it
+it'?s (important|worth|crucial|essential) (to note|noting|to remember|mentioning|to highlight) => just state the point
+(it is|it's) (important|crucial) to (understand|recognize) => just state the point
+plays? an? (crucial|pivotal|vital|key|significant) role => say what it does
+pivotal => say why it matters
+in (conclusion|summary)\b => drop the wrap-up label
+to sum (it )?up => drop the wrap-up label
+(Furthermore|Moreover|Additionally), => start with the point
+comprehensive guide => drop it
+embark(s|ed|ing)? on => "start"
+(the |a |this |our |your )journey => drop the metaphor
+elevat(e|es|ing) (your|the) => say the concrete improvement
+supercharg => say the concrete improvement
+empower => say what the user can now do
+boasts? => "has"
+stands? out as => say the measured difference
+look no further => drop it
+(deep dive|dive (deep|deeper) into|let'?s dive|dive into) => drop it
+not only\b.{0,60}\bbut also => say both things plainly
+(it'?s|this is|that'?s) not (just |merely |only )?(about )?[^.,;]{1,40}[,;] (it'?s|but) => "not X, it's Y" framing, state Y directly
+(great|excellent|good) question => drop it
+hope this helps => drop it
+feel free to => drop it
+let me know if you (need|have|want) => drop it
+happy to help => drop it
+^\s*(Certainly|Absolutely|Of course|Sure thing)! => drop the opener
+(truly|genuinely|incredibly|remarkably|undeniably) => drop the intensifier
+nuanced => say what the nuance is
+multifaceted => say the facets
+intricate => say what is complex
+meticulous => drop it
+(bustling|vibrant) => drop it
+foster(s|ed|ing)?\b => "build" / "encourage"
+underscor(e|es|ed|ing) => "shows"
+showcas(e|es|ed|ing) => "shows"
+(a )?myriad => "many" / give the count
+plethora => "many" / give the count
+paradigm shift => say what changed
+synerg => drop it
+holistic => say what is covered
+at the end of the day => drop it
+when it comes to => drop it
+in the world of => drop it
+key takeaways => drop the label
+whopping => give the number without the adjective
+rest assured => drop it
+(in this (article|post|guide),? we('ll| will)|this (article|post) (explores|delves|dives)) => start with the content
+stay ahead of the curve => drop it
+(valuable|actionable) insights => say the insight
+revolutioni[sz] => say what changed
+transformative => say what changed
+let'?s (break (it|this) down|unpack) => drop it
+it'?s clear that => just state it
+(serves|acts) as a => "is"
+(a|the) (wide|diverse|broad) (range|array|variety) of => give the count or examples
+in order to => "to"
+
+# Imported 2026-09-30 from hardikpandya/stop-slop (phrases.md, structures.md) and
+# blader/humanizer (SKILL.md §12-§23). Only phrases that are tells in any context; blanket
+# adverb bans and words with technical meanings (key, features, ensuring) were left out.
+here'?s the (thing|kicker|catch|deal|problem|truth)\b => drop the run-up, state the point
+here'?s (why|what) (that|this|it) (matters|means) => drop the run-up, state the point
+the (uncomfortable |hard |simple |real )?truth is => drop the run-up, state the point
+let me be (clear|honest)\b => drop it
+(i'?m going to be honest|to be (brutally )?honest), => drop it
+let that sink in => drop it
+make no mistake => drop it
+full stop\. => drop it
+(plot twist|spoiler alert): => drop it
+let me walk you through => start with the first step
+in a world where => drop the opener
+at its core,? => drop it
+the reality is => just state it
+(moving|going) forward, => drop it, or say "next"
+circle back\b => "return to"
+double(s|d)? down on => say what increases
+lean(s|ed|ing)? into => say what is accepted or used
+take a step back => drop it
+(the )?(stakes are high|implications are (significant|profound)|consequences are real) => name the stake or the consequence
+(a|is a) (feature|bug),? not a (bug|feature) => say what it does
+stands? as a (testament|reminder|symbol) => say what it shows
+mark(s|ed|ing)? a (pivotal|significant|major|key|turning) (moment|milestone|shift|point|step) => keep the fact, drop the significance
+(sets?|setting) the stage for => say what comes next
+indelible mark => say what changed
+(enduring|lasting) legacy => keep the fact, drop the legacy
+the future looks bright => cut, end on the last fact
+exciting times (lie |are )?ahead => cut, end on the last fact
+a step in the right direction => say what improved
+continues? to thrive => give the number or cut
+nestled => say where it is
+in the heart of => say where it is
+breathtaking => drop it
+must[- ]visit => drop it
+(experts|observers|critics|analysts) (argue|believe|say|agree|note) => name who said it
+interplay => say how the two affect each other
+garner(s|ed|ing)? => "get" / "win"
+bolster(s|ed|ing)? => "strengthen" / say how
+(up to|as of) my (last )?(training|knowledge) (cutoff|update) => state what the source does not show
+(while|although) specific details are (limited|scarce) => state what the source does not show
+based on (the )?available information => drop it
+you'?re (absolutely|completely|totally) right => drop it, answer the point
+
+[tr]
+günümüzün (hızla )?(değişen|gelişen) => girişi çıkar, doğrudan konuya gir
+hızla (değişen|gelişen) (dünya|dijital|teknoloji) => girişi çıkar
+dijital (çağ|dünya)(da|nda) => girişi çıkar
+kritik (bir )?(öneme|önem|rol) => neden önemli olduğunu söyle
+(önemli|kilit|hayati|kritik) (bir )?rol oyna => ne yaptığını söyle
+büyük önem taşı => neden önemli olduğunu söyle
+sorunsuz (bir )?(deneyim|entegrasyon|şekilde) => neyin ek adım olmadan çalıştığını söyle
+potansiyel(in|ini|inizi|ini tam) (açığa|ortaya) çıkar => somut kazancı söyle
+(tüm |tam )?potansiyelini => somut kazancı söyle
+gücünü (keşfed|kullan) => çıkar
+yolculu(k|ğ) => metaforu çıkar
+(derinlemesine )?(bir )?(bakış|dalış) (atalım|yapalım) => çıkar
+dalalım => çıkar
+kapsamlı (bir )?rehber => çıkar
+(sonuç olarak|özetle|toparlamak gerekirse|kısacası), => özet etiketini çıkar
+(dahası|bunun yanı sıra|bununla birlikte), => doğrudan noktayla başla
+(şunu )?belirtmek (gerekir|isterim|gerekirse) => doğrudan söyle
+belirtmekte fayda var => doğrudan söyle
+unutulmamalıdır ki => doğrudan söyle
+altını çizmek (gerekir|isterim) => doğrudan söyle
+sadece\b.{0,60}\bdeğil,? aynı zamanda => iki şeyi düz söyle
+oyunun kurallarını değiştir => neyin ne kadar değiştiğini söyle
+çığır açan => neyin değiştiğini söyle
+son teknoloji => adını ya da sayıyı ver
+devrim niteliğinde => neyin değiştiğini söyle
+(yeni bir |bambaşka bir )?boyuta taşı => somut iyileşmeyi söyle
+bir üst (seviyeye|düzeye) taşı => somut iyileşmeyi söyle
+vazgeçilmez => neden gerekli olduğunu söyle
+en iyi şekilde => çıkar
+(harika|güzel|mükemmel|çok iyi) (bir )?soru => çıkar
+umarım (bu )?(yardımcı|faydalı) olur => çıkar
+başka (bir )?(sorunuz|konuda yardım)\w* (var|olursa|olur) => kapanış cümlesini çıkar
+başka bir (şey|ihtiyacınız) (olursa|varsa|olursa haber) => kapanış cümlesini çıkar
+çekinme(den|yin) => çıkar
+^\s*(Elbette|Kesinlikle|Tabii ki)! => girişi çıkar
+(inanılmaz|son derece|olağanüstü|muazzam) => pekiştireci çıkar
+(eşsiz|benzersiz|keyifli) bir deneyim => çıkar
+bu (yazıda|makalede|rehberde)\b.{0,60}(inceleyeceğiz|ele alacağız|keşfedeceğiz) => doğrudan içerikle başla
+(hiç )?(merak ettiniz|düşündünüz) mü => çıkar
+dönüştürücü => neyin değiştiğini söyle
+göz atalım => çıkar
+(geniş|çeşitli|zengin) (bir )?(yelpaze|yelpazesi|seçenek) => sayı ya da örnek ver
+(değerli|eyleme dönüştürülebilir) (içgörü|bilgi) => içgörünün kendisini söyle
+ilgi çekici => neden ilgi çekici olduğunu söyle
+# Turkish counterparts of the stop-slop / humanizer categories added on 2026-09-30.
+işin (aslı|özü|püf noktası) (şu|şudur) => girişi çıkar, doğrudan söyle
+(açıkça|dürüst olmak|açık konuşmak) gerekirse => çıkar
+(şunu )?(unutmayın|bilmelisiniz): => doğrudan söyle
+ileriye (dönük olarak|bakıldığında), => çıkar
+gelecek (çok )?parlak görünüyor => çıkar, son somut bilgiyle bitir
+heyecan verici (günler|zamanlar) => çıkar, son somut bilgiyle bitir
+doğru yönde atılmış bir adım => neyin iyileştiğini söyle
+(kesinlikle|çok|tamamen) haklısınız => çıkar, konuya cevap ver
+mihenk taşı => ne gösterdiğini söyle
+(silinmez|kalıcı) (bir )?iz bırak => neyin değiştiğini söyle
+(uzmanlar|analistler|gözlemciler) (düşünüyor|belirtiyor|vurguluyor|hemfikir) => kimin söylediğini yaz
+
+[de]
+nahtlos => sag, was ohne Zusatzschritt funktioniert
+in der heutigen (schnelllebigen|digitalen|modernen) => Einstieg streichen
+(tauchen wir|eintauchen) => streichen
+bahnbrechend => sag, was sich ändert
+revolution(är|ieren) => sag, was sich ändert
+es ist (wichtig|erwähnenswert) (zu beachten|hervorzuheben) => direkt sagen
+nicht nur\b.{0,60}\bsondern auch => beides direkt sagen
+entfessel => streichen
+umfassende(n|r)? (Leitfaden|Ratgeber) => streichen
+(die|eine|unsere|Ihre) Reise => Metapher streichen
+Potenzial (voll )?(ausschöpfen|entfalten|freisetzen) => konkreten Nutzen nennen
+Game[- ]?Changer => sag, was sich ändert
+auf die nächste (Stufe|Ebene) => konkrete Verbesserung nennen
+
+[es]
+en el mundo (actual|de hoy|digital) => quita la entrada
+sin (fisuras|complicaciones) => di qué funciona sin pasos extra
+(adentrémonos|sumerjámonos|profundicemos) => quítalo
+es (importante|crucial) (destacar|tener en cuenta|señalar|mencionar) => dilo directamente
+no solo\b.{0,60}\bsino también => di ambas cosas directamente
+revolucion(ario|aria|ar) => di qué cambia
+desbloquear (el|todo su|tu) potencial => di la ganancia concreta
+guía (completa|definitiva) => quítalo
+(el|un|nuestro|tu) viaje => quita la metáfora
+cambia(r)? las reglas del juego => di qué cambia
+de vanguardia => nombra la cosa o el número
+llevar(lo)? al siguiente nivel => di la mejora concreta
+
+[fr]
+dans le monde (actuel|d'aujourd'hui|numérique) => supprime l'intro
+sans (faille|accroc|couture) => dis ce qui marche sans étape en plus
+plongeons => supprime
+il est (important|crucial|essentiel) de (noter|souligner|rappeler) => dis-le directement
+non seulement\b.{0,60}\bmais (aussi|également) => dis les deux simplement
+révolution(naire|ner) => dis ce qui change
+libérer (tout )?(le|son|votre) potentiel => dis le gain concret
+guide (complet|ultime) => supprime
+(le|un|votre|notre) voyage => supprime la métaphore
+change(r)? la donne => dis ce qui change
+de pointe => nomme la chose ou le chiffre
+au niveau supérieur => dis l'amélioration concrète
+
+[it]
+nel mondo (di oggi|odierno|attuale|digitale) => togli l'introduzione
+senza (soluzione di continuità|interruzioni|intoppi) => di' cosa funziona senza passi in più
+immergiamoci => togli
+è (importante|fondamentale) (notare|sottolineare|ricordare) => dillo direttamente
+non solo\b.{0,60}\bma anche => di' entrambe le cose direttamente
+rivoluzion(ario|aria|are) => di' cosa cambia
+sbloccare (il|tutto il) potenziale => di' il guadagno concreto
+guida (completa|definitiva) => togli
+(il|un|nostro|tuo) viaggio => togli la metafora
+all'avanguardia => nomina la cosa o il numero
+al livello successivo => di' il miglioramento concreto
+
+[pt]
+no mundo (atual|de hoje|digital) => tira a introdução
+sem (complicações|interrupções) => diz o que funciona sem passos extra
+vamos mergulhar => tira
+é (importante|crucial|fundamental) (notar|destacar|ressaltar|mencionar) => diz diretamente
+não (só|apenas)\b.{0,60}\bmas também => diz as duas coisas diretamente
+revolucion(ário|ária|ar) => diz o que muda
+desbloquear (todo o |o seu )?potencial => diz o ganho concreto
+guia (completo|definitivo) => tira
+(a|uma|nossa|sua) jornada => tira a metáfora
+muda(r)? o jogo => diz o que muda
+de ponta => nomeia a coisa ou o número
+ao próximo nível => diz a melhoria concreta

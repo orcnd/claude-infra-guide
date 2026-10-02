@@ -1,0 +1,11 @@
+#!/bin/sh
+# Refresh the shared code graph after every commit. AST-only, no LLM cost.
+# Runs in the background so the commit does not wait; scope comes from <project>/.graphifyignore.
+# Install into each repo: cp post-commit <repo>/.git/hooks/ && chmod +x <repo>/.git/hooks/post-commit
+PROJECT_ROOT="$HOME/code/project"
+command -v graphify >/dev/null 2>&1 || exit 0
+(
+  cd "$PROJECT_ROOT" 2>/dev/null || exit 0
+  graphify update . >> graphify-out/update.log 2>&1
+) </dev/null >/dev/null 2>&1 &
+exit 0
