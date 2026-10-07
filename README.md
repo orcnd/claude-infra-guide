@@ -43,6 +43,7 @@ flowchart LR
 | About a third of UAT hand-overs came back, mostly for preventable reasons | A checklist from the ticket, a logical check of the rendered page instead of unit tests, a mandatory UAT gate | [05](docs/05-verification-and-uat-gate.md) |
 | Claude rediscovered four repos every session | Layered CLAUDE.md, path-scoped rules, a code graph | [04](docs/04-claude-configuration.md), [06](docs/06-code-graph.md) |
 | Claude's comments, commits, UI copy and translations read like AI text | A slop checker on every edit, commit message and reply | [07](docs/07-slop-check.md) |
+| Requests buried in Slack and Jira mentions | A menu bar inbox where Claude keeps only mentions that need action, each with a one-line summary | [10](docs/10-notification-inbox.md) |
 
 ## Guide
 
@@ -57,6 +58,7 @@ flowchart LR
 | 7 | [07-slop-check](docs/07-slop-check.md) | The slop checker |
 | 8 | [08-plugins-and-tools](docs/08-plugins-and-tools.md) | Plugins, skills, MCP servers |
 | 9 | [09-lessons](docs/09-lessons.md) | Lessons, pitfalls, where to start |
+| 10 | [10-notification-inbox](docs/10-notification-inbox.md) | Slack and Jira mentions filtered and summarised by Claude |
 
 ## Templates
 

@@ -43,6 +43,7 @@ flowchart LR
 | UAT'ye teslim edilenlerin yaklaşık üçte biri geri dönüyordu, çoğu önlenebilir sebeplerle | Ticket'tan çıkan checklist, unit test yerine render edilmiş sayfanın mantıksal kontrolü, zorunlu UAT kapısı | [05](docs/05-dogrulama-ve-uat-kapisi.md) |
 | Claude her oturumda dört repoyu baştan keşfediyordu | Katmanlı CLAUDE.md, yol bazlı rule dosyaları, kod grafı | [04](docs/04-claude-yapilandirmasi.md), [06](docs/06-kod-grafi.md) |
 | Claude'un yorumları, commit'leri, UI metinleri ve çevirileri AI metni gibi okunuyordu | Her düzenlemede, commit mesajında ve yanıtta çalışan bir slop denetleyicisi | [07](docs/07-slop-kontrolu.md) |
+| İstekler Slack ve Jira etiketlerinin arasında kayboluyordu | Claude'un sadece aksiyon gerektiren etiketleri tek satırlık özetle bıraktığı bir menü çubuğu kutusu | [10](docs/10-bildirim-kutusu.md) |
 
 ## Rehber
 
@@ -57,6 +58,7 @@ flowchart LR
 | 7 | [07-slop-kontrolu](docs/07-slop-kontrolu.md) | Slop denetleyicisi |
 | 8 | [08-pluginler-ve-araclar](docs/08-pluginler-ve-araclar.md) | Plugin'ler, skill'ler, MCP sunucuları |
 | 9 | [09-dersler](docs/09-dersler.md) | Dersler, tuzaklar, nereden başlamalı |
+| 10 | [10-bildirim-kutusu](docs/10-bildirim-kutusu.md) | Claude'un süzüp özetlediği Slack ve Jira etiketleri |
 
 ## Şablonlar
 

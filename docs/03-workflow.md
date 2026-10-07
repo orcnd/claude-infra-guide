@@ -47,6 +47,9 @@ stateDiagram-v2
 The `status` skill runs `ws board --json` and lists, in order: tickets back from UAT, uncommitted work,
 servers left running, then other statuses as counts. Five lines you can act on instead of 30 tickets.
 
+Requests that are not tickets (Slack and Jira mentions) come from the [notification inbox](10-notification-inbox.md),
+which keeps only the ones that need action.
+
 ## `start task 1234`
 
 The CLAUDE.md trigger and `/start-task` run the same steps:

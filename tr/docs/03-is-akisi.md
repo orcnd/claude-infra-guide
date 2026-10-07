@@ -47,6 +47,9 @@ stateDiagram-v2
 `status` skill'i `ws board --json` çalıştırır ve sırasıyla şunları listeler: UAT'den dönen ticket'lar, commit'lenmemiş iş,
 açık kalmış sunucular, sonra diğer statüler sayı olarak. 30 ticket yerine üzerinde iş yapılabilecek beş satır.
 
+Ticket olmayan istekler (Slack ve Jira etiketleri) [bildirim kutusundan](10-bildirim-kutusu.md) gelir;
+kutu sadece aksiyon gerektirenleri tutar.
+
 ## `start task 1234`
 
 CLAUDE.md'deki tetikleyici ve `/start-task` aynı adımları çalıştırır:
