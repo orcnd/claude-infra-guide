@@ -105,6 +105,8 @@ Build'de source map'ler açık kalır.
 | Jira | `config` (token işletim sistemi keychain'inde), `jira`, `board`, `resume`, `export` |
 | Kalite | `checklist`, `i18n`, `uat` |
 | Tarayıcı | `browse open/click/type/eval/shot/check/crawl/numbers` |
+| Teslim | `deploy`, `estimate` ([12](12-deploy-ve-tahmin.md)) |
+| Arka plan | `watch`, `maintain`, `doctor`, `notify` ([11](11-otomasyon.md)) |
 
 Tasarım kararları:
 
@@ -118,7 +120,7 @@ Tasarım kararları:
 
 ```mermaid
 flowchart TD
-    S["her çalışma alanı"] --> Q1{"Jira'da Done mı?"}
+    S["her çalışma alanı"] --> Q1{"Jira statüsü bitmiş mi?<br/>Done ya da canlıya alındı statüsü"}
     Q1 -- hayır --> K1["tut: açık"]
     Q1 -- evet --> Q2{"commit'lenmemiş dosya?"}
     Q2 -- evet --> K2["tut: kirli"]

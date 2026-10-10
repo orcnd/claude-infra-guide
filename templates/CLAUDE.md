@@ -57,6 +57,7 @@ The `page-logic-verifier` agent runs this pass. Browser work goes through `ws br
 - Fix any bug: diagnose first, present file:line, cause and proposed fix; wait for approval.
 - Run `git commit`: show the proposed message and file list; wait for approval.
 - Push to a remote.
+- Start a deploy (`ws deploy`), and never pass `--prod` or `--yes` on your own.
 - Drop or truncate tables, or run destructive DB operations.
 - Create new architectural patterns; reuse existing ones.
 - Modify shared infrastructure (nginx configs, cron schedules, queues).

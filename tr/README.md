@@ -44,6 +44,8 @@ flowchart LR
 | Claude her oturumda dört repoyu baştan keşfediyordu | Katmanlı CLAUDE.md, yol bazlı rule dosyaları, kod grafı | [04](docs/04-claude-yapilandirmasi.md), [06](docs/06-kod-grafi.md) |
 | Claude'un yorumları, commit'leri, UI metinleri ve çevirileri AI metni gibi okunuyordu | Her düzenlemede, commit mesajında ve yanıtta çalışan bir slop denetleyicisi | [07](docs/07-slop-kontrolu.md) |
 | İstekler Slack ve Jira etiketlerinin arasında kayboluyordu | Claude'un sadece aksiyon gerektiren etiketleri tek satırlık özetle bıraktığı bir menü çubuğu kutusu | [10](docs/10-bildirim-kutusu.md) |
+| Sayfalar teslimden sonra da bozuluyor; makine nedenini söylemeden yavaşlıyordu | Dünle karşılaştıran günlük sayfa kontrolü, günlük temizlik, sadece okuyan bir makine doktoru; hepsi tek bir Slack DM'ine raporluyor | [11](docs/11-otomasyon.md) |
+| Deploy için Bitbucket'ta tıklamak gerekiyordu; tahminler sezgiye dayanıyordu | `ws deploy` Run'a terminalden basıyor; `ws estimate` senin geçmişinden tahmin ediyor, backtest ile | [12](docs/12-deploy-ve-tahmin.md) |
 
 ## Rehber
 
@@ -59,6 +61,8 @@ flowchart LR
 | 8 | [08-pluginler-ve-araclar](docs/08-pluginler-ve-araclar.md) | Plugin'ler, skill'ler, MCP sunucuları |
 | 9 | [09-dersler](docs/09-dersler.md) | Dersler, tuzaklar, nereden başlamalı |
 | 10 | [10-bildirim-kutusu](docs/10-bildirim-kutusu.md) | Claude'un süzüp özetlediği Slack ve Jira etiketleri |
+| 11 | [11-otomasyon](docs/11-otomasyon.md) | Günlük sayfa kontrolü, temizlik, makine doktoru, Slack DM |
+| 12 | [12-deploy-ve-tahmin](docs/12-deploy-ve-tahmin.md) | İmzalı tarayıcı köprüsüyle terminalden deploy; geçmişten tahmin |
 
 ## Şablonlar
 

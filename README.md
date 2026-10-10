@@ -44,6 +44,8 @@ flowchart LR
 | Claude rediscovered four repos every session | Layered CLAUDE.md, path-scoped rules, a code graph | [04](docs/04-claude-configuration.md), [06](docs/06-code-graph.md) |
 | Claude's comments, commits, UI copy and translations read like AI text | A slop checker on every edit, commit message and reply | [07](docs/07-slop-check.md) |
 | Requests buried in Slack and Jira mentions | A menu bar inbox where Claude keeps only mentions that need action, each with a one-line summary | [10](docs/10-notification-inbox.md) |
+| Pages break after hand-over; the machine slows down without saying why | Daily page check with a diff against yesterday, daily clean-up, a read-only machine doctor, all reporting to one Slack DM | [11](docs/11-automation.md) |
+| Deploys meant clicking through Bitbucket; estimates were guesses | `ws deploy` presses Run from the terminal; `ws estimate` estimates from your own history, with a backtest | [12](docs/12-deploy-and-estimate.md) |
 
 ## Guide
 
@@ -59,6 +61,8 @@ flowchart LR
 | 8 | [08-plugins-and-tools](docs/08-plugins-and-tools.md) | Plugins, skills, MCP servers |
 | 9 | [09-lessons](docs/09-lessons.md) | Lessons, pitfalls, where to start |
 | 10 | [10-notification-inbox](docs/10-notification-inbox.md) | Slack and Jira mentions filtered and summarised by Claude |
+| 11 | [11-automation](docs/11-automation.md) | Daily page check, clean-up, machine doctor, Slack DM |
+| 12 | [12-deploy-and-estimate](docs/12-deploy-and-estimate.md) | Deploys from the terminal through a signed browser bridge; estimates from history |
 
 ## Templates
 

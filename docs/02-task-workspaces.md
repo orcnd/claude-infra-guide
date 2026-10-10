@@ -105,6 +105,8 @@ Source maps stay on in the build.
 | Jira | `config` (token in the OS keychain), `jira`, `board`, `resume`, `export` |
 | Quality | `checklist`, `i18n`, `uat` |
 | Browser | `browse open/click/type/eval/shot/check/crawl/numbers` |
+| Delivery | `deploy`, `estimate` ([12](12-deploy-and-estimate.md)) |
+| Background | `watch`, `maintain`, `doctor`, `notify` ([11](11-automation.md)) |
 
 Design choices:
 
@@ -118,7 +120,7 @@ Design choices:
 
 ```mermaid
 flowchart TD
-    S["each workspace"] --> Q1{"Jira Done?"}
+    S["each workspace"] --> Q1{"Jira status finished?<br/>Done or a released status"}
     Q1 -- no --> K1["keep: open"]
     Q1 -- yes --> Q2{"uncommitted files?"}
     Q2 -- yes --> K2["keep: dirty"]
